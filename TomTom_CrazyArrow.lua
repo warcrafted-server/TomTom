@@ -171,8 +171,6 @@ local function OnUpdate(self, elapsed)
 
 	status:SetText(sformat(L["%d yards"], dist))
 
-	local cell
-
 	-- Showing the arrival arrow?
 	if dist <= arrive_distance then
 		if not showDownArrow then
