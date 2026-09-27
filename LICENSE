@@ -45,3 +45,14 @@ licencia:
   freesound.org
 
 Consulta cada fichero de licencia dentro de su carpeta para más detalle.
+
+4. Cómo se aplica en la práctica
+-----------------------------------
+Los ficheros `TomTom*.lua` y `Localization.*.lua` de la raíz mezclan código
+original de Cladhaire con cambios de este fork; no están separados en
+ficheros distintos. El aviso de la sección 1 cubre el código heredado tal
+cual estaba en r240-release (ver el tag `v1.0.0` de este repositorio para
+verlo sin modificar), y el de la sección 2 cubre únicamente los cambios
+introducidos después de ese tag, visibles en el historial de git y en
+CHANGELOG.md. `libs/` no se toca en este fork y conserva sus licencias
+originales según la sección 3.
