@@ -1,5 +1,7 @@
 --Localization.esES.lua
 
+if GetLocale() == "esES" or GetLocale() == "esMX" then
+
 local L = {}
 TomTomLocals = L
 
@@ -156,3 +158,5 @@ L["World Map"] = "Mapa del mundo"
 L["Yes"] = "Sí"
 
 setmetatable(L, {__index=function(t,k) rawset(t, k, k); return k; end})
+
+end

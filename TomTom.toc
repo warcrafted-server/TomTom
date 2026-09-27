@@ -24,6 +24,7 @@ libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
 libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 
 Localization.enUS.lua
+Localization.esES.lua
 Localization.deDE.lua
 Localization.zhCN.lua
 Localization.ruRU.lua
