@@ -7,7 +7,7 @@ minimap and world map waypoints, cursor/player coordinates, and the `/way`
 command. This repository is a fork of Cladhaire's original TomTom
 (r240-release), with Spanish localization and additional improvements.
 
-**Current maintainer: WarCrafted** (<https://logon.warcrafted.com>). See
+**Current maintainer: WarCrafted** (<https://portal.warcrafted.com/>). See
 [CREDITS.md](CREDITS.md) for full attribution, including the original
 project's.
 

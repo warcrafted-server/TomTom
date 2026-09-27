@@ -7,7 +7,7 @@ waypoints en minimapa y mapa del mundo, coordenadas del cursor/jugador y comando
 `/way`. Este repositorio es un fork del TomTom original de Cladhaire (r240-release),
 con traducción al español y mejoras propias.
 
-**Mantenedor actual: WarCrafted** (<https://logon.warcrafted.com>). Ver
+**Mantenedor actual: WarCrafted** (<https://portal.warcrafted.com/>). Ver
 [CREDITS.md](CREDITS.md) para la atribución completa, incluida la del proyecto
 original.
 

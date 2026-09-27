@@ -3,7 +3,7 @@
 ## Mantenedor actual
 
     WarCrafted
-    https://logon.warcrafted.com
+    https://portal.warcrafted.com/
 
 Si redistribuyes o forkeas este repositorio, conserva esta atribución al
 mantenedor actual además de la del proyecto original (ver más abajo), tal
