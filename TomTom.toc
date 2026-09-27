@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: TomTom
 ## Author: Cladhaire (fork: WarCrafted)
-## Version: 1.2.0
+## Version: 1.2.1
 ## Notes: Acts as your portable navigation assistant
 ## Notes-esES: Tu asistente de navegación portátil
 ## Notes-esMX: Tu asistente de navegación portátil

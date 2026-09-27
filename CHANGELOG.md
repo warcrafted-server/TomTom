@@ -5,6 +5,17 @@ Versionado [SemVer](https://semver.org/lang/es/) propio de este fork.
 
 ## [Sin publicar]
 
+## [1.2.1] - 2026-09-27
+
+### Corregido
+- `Localization.esES.lua` no estaba registrado en `TomTom.toc`, así que
+  WoW nunca lo cargaba: la traducción al español de la v1.1.0 no
+  llegaba a aplicarse en el juego.
+- Ese mismo fichero sobreescribía `TomTomLocals` sin comprobar
+  `GetLocale()`, a diferencia del resto de idiomas. De haberse cargado,
+  habría roto alemán, ruso y los dos chinos para cualquier jugador,
+  fuera cual fuera su idioma de cliente.
+
 ## [1.2.0] - 2026-09-27
 
 ### Añadido
@@ -53,7 +64,8 @@ para WoW 3.3.5a (Interface 30300).
 - Ruso (ruRU): 118 cadenas
 - Inglés (enUS): fallback vacío (usa la clave como texto)
 
-[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.2.0...HEAD
+[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/warcrafted-server/TomTom/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/warcrafted-server/TomTom/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/warcrafted-server/TomTom/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/warcrafted-server/TomTom/releases/tag/v1.0.0
