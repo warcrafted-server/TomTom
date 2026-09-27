@@ -1,5 +1,14 @@
 # Créditos
 
+## Mantenedor actual
+
+    WarCrafted
+    https://logon.warcrafted.com
+
+Si redistribuyes o forkeas este repositorio, conserva esta atribución al
+mantenedor actual además de la del proyecto original (ver más abajo), tal
+como exige el sistema de licencias que gobierna este proyecto.
+
 ## Fork
 
     Proyecto original:

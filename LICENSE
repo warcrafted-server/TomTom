@@ -27,10 +27,14 @@ licencia explícita que lo autorice o lo restrinja expresamente.
 2. Modificaciones de este fork
 --------------------------------
 Las modificaciones introducidas a partir del tag v1.0.0 (ver CHANGELOG.md
-e historial de git) tienen como titular a WarCrafted. No se les asigna una
-licencia distinta de la del proyecto original: siguen sujetas a la misma
-incertidumbre descrita en el punto 1, ya que no serían separables del
-código base sin perder funcionalidad.
+e historial de git) tienen como titular a WarCrafted, mantenedor actual de
+este repositorio. No se les asigna una licencia distinta de la del proyecto
+original: siguen sujetas a la misma incertidumbre descrita en el punto 1,
+ya que no serían separables del código base sin perder funcionalidad.
+
+Cualquier redistribución o fork de este repositorio conserva la atribución
+a WarCrafted como mantenedor actual, además de la atribución al proyecto
+original de la sección 1. Ver CREDITS.md.
 
 3. Componentes de terceros
 ----------------------------

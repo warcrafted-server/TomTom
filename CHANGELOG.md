@@ -8,6 +8,9 @@ Versionado [SemVer](https://semver.org/lang/es/) propio de este fork.
 ### Corregido
 - LICENSE reescrito siguiendo la política UPSTREAM (fork) en vez de asignar
   MIT a las modificaciones sin base para ello. Se añade CREDITS.md.
+- README, CREDITS.md y LICENSE identifican explícitamente a WarCrafted como
+  mantenedor actual y exigen conservar esa atribución en cualquier
+  redistribución o fork de este repositorio.
 
 ## [1.3.0] - 2026-09-27
 

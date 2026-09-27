@@ -5,8 +5,11 @@
 Addon de navegación para World of Warcraft 3.3.5a: flecha de ruta ("crazy arrow"),
 waypoints en minimapa y mapa del mundo, coordenadas del cursor/jugador y comando
 `/way`. Este repositorio es un fork del TomTom original de Cladhaire (r240-release),
-mantenido por [WarCrafted](https://logon.warcrafted.com) para su servidor
-AzerothCore, con traducción al español y mejoras propias.
+con traducción al español y mejoras propias.
+
+**Mantenedor actual: WarCrafted** (<https://logon.warcrafted.com>). Ver
+[CREDITS.md](CREDITS.md) para la atribución completa, incluida la del proyecto
+original.
 
 ## Integración con Questie
 

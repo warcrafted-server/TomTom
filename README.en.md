@@ -5,9 +5,11 @@
 Navigation addon for World of Warcraft 3.3.5a: route arrow ("crazy arrow"),
 minimap and world map waypoints, cursor/player coordinates, and the `/way`
 command. This repository is a fork of Cladhaire's original TomTom
-(r240-release), maintained by [WarCrafted](https://logon.warcrafted.com) for
-its AzerothCore server, with Spanish localization and additional
-improvements.
+(r240-release), with Spanish localization and additional improvements.
+
+**Current maintainer: WarCrafted** (<https://logon.warcrafted.com>). See
+[CREDITS.md](CREDITS.md) for full attribution, including the original
+project's.
 
 ## Questie integration
 
