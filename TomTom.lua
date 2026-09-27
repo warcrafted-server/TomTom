@@ -55,6 +55,7 @@ function TomTom:ADDON_LOADED(event, addon)
 					confirmremoveall = true,
 					announce = false,
 					corpse_arrow = true,
+					distanceunit = "yards",
 				},
 				block = {
 					enable = true,
@@ -643,7 +644,7 @@ local function _both_tooltip_show(event, tooltip, uid, dist)
 	-- since the quest name line above may or may not be present.
 	tooltip.distanceLine = tooltip:NumLines() + 1
 	if dist and tonumber(dist) then
-		tooltip:AddLine(string.format(L["%s yards away"], math.floor(dist)), 1, 1, 1)
+		tooltip:AddLine(string.format(L["%s away"], TomTom:FormatDistance(dist)), 1, 1, 1)
 	else
 		tooltip:AddLine(L["Unknown distance"])
 	end
@@ -671,7 +672,7 @@ local function _both_tooltip_update(event, tooltip, uid, dist)
 	local line = tooltip.lines[tooltip.distanceLine or 2]
 	if not line then return end
 	if dist and tonumber(dist) then
-		line:SetFormattedText(L["%s yards away"], math.floor(dist), 1, 1, 1)
+		line:SetFormattedText(L["%s away"], TomTom:FormatDistance(dist))
 	else
 		line:SetText(L["Unknown distance"])
 	end
@@ -914,6 +915,18 @@ function TomTom:GetCoord(x, y)
 end
 function TomTom:GetXY(id)
 	return floor(id / 10000) / 10000, (id % 10000) / 10000
+end
+
+-- WoW's internal distances are always in yards (international yard,
+-- 1 yard = 0.9144 m). This only affects display.
+local YARDS_TO_METERS = 0.9144
+
+function TomTom:FormatDistance(dist)
+	if not dist then return "" end
+	if self.profile.general.distanceunit == "meters" then
+		return string.format(L["%d m"], floor(dist * YARDS_TO_METERS + 0.5))
+	end
+	return string.format(L["%d yards"], floor(dist))
 end
 
 do

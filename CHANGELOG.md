@@ -5,6 +5,15 @@ Versionado [SemVer](https://semver.org/lang/es/) propio de este fork.
 
 ## [Sin publicar]
 
+## [1.3.0] - 2026-09-27
+
+### Añadido
+- Opción "Unidad de distancia" (yardas/metros) en Opciones generales.
+  Afecta a la flecha de ruta, su feed LDB y los tooltips de waypoint.
+  Conversión con la yarda internacional exacta (1 yd = 0.9144 m); es
+  solo de visualización, el juego sigue midiendo en yardas
+  internamente.
+
 ## [1.2.1] - 2026-09-27
 
 ### Corregido
@@ -64,7 +73,8 @@ para WoW 3.3.5a (Interface 30300).
 - Ruso (ruRU): 118 cadenas
 - Inglés (enUS): fallback vacío (usa la clave como texto)
 
-[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.2.1...HEAD
+[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/warcrafted-server/TomTom/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/warcrafted-server/TomTom/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/warcrafted-server/TomTom/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/warcrafted-server/TomTom/compare/v1.0.0...v1.1.0

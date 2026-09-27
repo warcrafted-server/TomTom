@@ -626,6 +626,17 @@ local function createconfig()
 				width = "double",
 				arg = "general.corpse_arrow",
 			},
+			distanceunit = {
+				type = "select",
+				order = 7,
+				name = L["Distance unit"],
+				desc = L["Choose whether distances (waypoint arrow, tooltips) are shown in yards or meters. This is purely cosmetic; the game itself always measures in yards."],
+				values = {
+					yards = L["Yards"],
+					meters = L["Meters"],
+				},
+				arg = "general.distanceunit",
+			},
 		},
 	}
 

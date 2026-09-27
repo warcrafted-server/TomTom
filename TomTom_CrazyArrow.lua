@@ -7,7 +7,6 @@
 ----------------------------------------------------------------------------]]
 
 local Astrolabe = DongleStub("Astrolabe-0.4")
-local sformat = string.format
 local L = TomTomLocals
 local ldb = LibStub("LibDataBroker-1.1")
 
@@ -169,7 +168,7 @@ local function OnUpdate(self, elapsed)
 		return
 	end
 
-	status:SetText(sformat(L["%d yards"], dist))
+	status:SetText(TomTom:FormatDistance(dist))
 
 	-- Showing the arrival arrow?
 	if dist <= arrive_distance then
@@ -442,7 +441,7 @@ local function wayframe_OnEvent(self, event, arg1, ...)
 					local dist = TomTom:GetDistanceToWaypoint(active_point)
 					if dist then
 						tooltip:AddLine(point_title or L["Unknown waypoint"])
-						tooltip:AddLine(sformat(L["%d yards"], dist), 1, 1, 1)
+						tooltip:AddLine(TomTom:FormatDistance(dist), 1, 1, 1)
 					end
 				end,
 				OnClick = WayFrame_OnClick,
