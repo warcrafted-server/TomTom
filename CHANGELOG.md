@@ -5,6 +5,20 @@ Versionado [SemVer](https://semver.org/lang/es/) propio de este fork.
 
 ## [Sin publicar]
 
+## [1.2.0] - 2026-09-27
+
+### Añadido
+- La flecha de ruta muestra el nombre de la misión cuando el waypoint
+  activo lo puso Questie para una misión en seguimiento (opción
+  "Mostrar nombre de la misión", activada por defecto). El tooltip del
+  waypoint también lo incluye.
+- `/way` acepta la coma como separador decimal (`45,2` además de
+  `45.2`).
+- El panel de opciones muestra la versión real del addon.
+- Aviso en la opción de waypoints automáticos de misión si Questie
+  está cargado: su AutoRoute ya hace lo mismo y activar ambas hace que
+  la flecha se dispute el waypoint activo.
+
 ## [1.1.0] - 2026-09-27
 
 ### Añadido
@@ -39,6 +53,7 @@ para WoW 3.3.5a (Interface 30300).
 - Ruso (ruRU): 118 cadenas
 - Inglés (enUS): fallback vacío (usa la clave como texto)
 
-[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.1.0...HEAD
+[Sin publicar]: https://github.com/warcrafted-server/TomTom/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/warcrafted-server/TomTom/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/warcrafted-server/TomTom/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/warcrafted-server/TomTom/releases/tag/v1.0.0
