@@ -49,10 +49,13 @@ wayframe:Hide()
 local titleframe = CreateFrame("Frame", nil, wayframe)
 
 wayframe.title = titleframe:CreateFontString("OVERLAY", nil, "GameFontHighlightSmall")
+wayframe.quest = titleframe:CreateFontString("OVERLAY", nil, "GameFontNormalSmall")
 wayframe.status = titleframe:CreateFontString("OVERLAY", nil, "GameFontNormalSmall")
 wayframe.tta = titleframe:CreateFontString("OVERLAY", nil, "GameFontNormalSmall")
 wayframe.title:SetPoint("TOP", wayframe, "BOTTOM", 0, 0)
-wayframe.status:SetPoint("TOP", wayframe.title, "BOTTOM", 0, 0)
+wayframe.quest:SetPoint("TOP", wayframe.title, "BOTTOM", 0, 0)
+wayframe.quest:SetTextColor(1, 0.82, 0)
+wayframe.status:SetPoint("TOP", wayframe.quest, "BOTTOM", 0, 0)
 wayframe.tta:SetPoint("TOP", wayframe.status, "BOTTOM", 0, 0)
 
 local function OnDragStart(self, button)
@@ -83,13 +86,52 @@ wayframe.arrow:SetAllPoints()
 
 local active_point, arrive_distance, showDownArrow, point_title
 
+-- Questie (335) sets Questie.db.char._tom_waypoint / _tom_waypoint_quest right
+-- after TomTom:AddZWaypoint returns, so this can't be resolved at creation
+-- time for the crazy arrow. Tooltips can call it directly by uid, though.
+function TomTom:GetQuestNameForWaypoint(uid)
+	local Questie = _G.Questie
+	if not Questie or not Questie.db or not Questie.db.char then
+		return nil
+	end
+
+	local waypoint = Questie.db.char._tom_waypoint
+	local quest = Questie.db.char._tom_waypoint_quest
+	if waypoint ~= uid or not quest or not quest.questId then
+		return nil
+	end
+
+	for i = 1, (GetNumQuestLogEntries() or 0) do
+		local title, _, _, isHeader, _, _, _, questID = GetQuestLogTitle(i)
+		if not isHeader and questID == quest.questId then
+			return title
+		end
+	end
+
+	local ok, QuestieLoader = pcall(function() return _G.QuestieLoader end)
+	if ok and QuestieLoader and QuestieLoader.ImportModule then
+		local okDb, QuestieDB = pcall(QuestieLoader.ImportModule, QuestieLoader, "QuestieDB")
+		if okDb and QuestieDB and QuestieDB.GetQuest then
+			local okQuest, questData = pcall(QuestieDB.GetQuest, quest.questId)
+			if okQuest and questData then
+				return questData.name
+			end
+		end
+	end
+end
+
+local function GetActiveQuestName()
+	return TomTom:GetQuestNameForWaypoint(active_point)
+end
+
 function TomTom:SetCrazyArrow(uid, dist, title)
 	active_point = uid
 	arrive_distance = dist
-	point_title = title 
+	point_title = title
 
 	if self.profile.arrow.enable then
 		wayframe.title:SetText(title or "Unknown waypoint")
+		wayframe.quest:Hide()
 		wayframe:Show()
 	end
 end
@@ -192,6 +234,18 @@ local function OnUpdate(self, elapsed)
 	tta_throttle = tta_throttle + elapsed
 
 	if tta_throttle >= 1.0 then
+		if TomTom.profile.arrow.showquest then
+			local questName = GetActiveQuestName()
+			if questName and questName ~= point_title then
+				wayframe.quest:SetText(questName)
+				wayframe.quest:Show()
+			else
+				wayframe.quest:Hide()
+			end
+		else
+			wayframe.quest:Hide()
+		end
+
 		-- Calculate the speed in yards per sec at which we're moving
 		local current_speed = (last_distance - dist) / tta_throttle
 
