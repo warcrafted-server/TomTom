@@ -5,6 +5,10 @@ Versionado [SemVer](https://semver.org/lang/es/) propio de este fork.
 
 ## [Sin publicar]
 
+### Corregido
+- LICENSE reescrito siguiendo la política UPSTREAM (fork) en vez de asignar
+  MIT a las modificaciones sin base para ello. Se añade CREDITS.md.
+
 ## [1.3.0] - 2026-09-27
 
 ### Añadido

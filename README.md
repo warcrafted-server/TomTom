@@ -52,8 +52,11 @@ Español, inglés, alemán, ruso, chino simplificado y chino tradicional. Ver
 
 ## Licencia
 
-Ver [LICENSE](LICENSE): el código original es de Cladhaire, las modificaciones
-de este fork son MIT, y cada librería incluida mantiene su propia licencia.
+Este es un fork de TomTom (Cladhaire). El paquete original no incluye una
+licencia explícita, así que este repositorio no crea una licencia nueva para
+sustituirla: ver [LICENSE](LICENSE) para el detalle de lo que se sabe y lo
+que no sobre el proyecto original, y [CREDITS.md](CREDITS.md) para la
+atribución. Cada librería de terceros incluida mantiene su propia licencia.
 
 ## Documentación para desarrollo
 

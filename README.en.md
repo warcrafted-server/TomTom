@@ -50,9 +50,11 @@ Chinese. See [CHANGELOG.md](CHANGELOG.md) for per-language coverage.
 
 ## License
 
-See [LICENSE](LICENSE): the original code belongs to Cladhaire, this fork's
-modifications are MIT-licensed, and each bundled library keeps its own
-license.
+This is a fork of TomTom (Cladhaire). The original package doesn't include
+an explicit license, so this repository doesn't create a new one to replace
+it: see [LICENSE](LICENSE) for what's known and unknown about the original
+project, and [CREDITS.md](CREDITS.md) for attribution. Each bundled
+third-party library keeps its own license.
 
 ## Development docs
 

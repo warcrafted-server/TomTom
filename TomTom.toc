@@ -9,7 +9,7 @@
 ## Notes-ruRU: Удобный портативный навигатор по игровой карте
 ## SavedVariables: TomTomDB, TomTomWaypoints
 ## X-Curse-Packaged-Version: r240-release
-## X-License: Ver LICENSE (código original de Cladhaire, modificaciones de este fork bajo MIT)
+## X-License: Ver LICENSE (fork sin licencia original confirmada, ver LICENSE para el detalle)
 ## X-Website: https://github.com/warcrafted-server/TomTom
 
 ## X-Localizations: enUS, esES, esMX, deDE, zhCN, ruRU, zhTW

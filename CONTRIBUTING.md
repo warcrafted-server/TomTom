@@ -36,8 +36,9 @@ Questie (`../Questie`, mismo servidor) depende de esta API exacta:
 - Toda cadena visible al jugador va envuelta en `L["..."]`; añadir la clave a
   `Localization.enUS.lua` (aunque quede igual al texto) y a `Localization.esES.lua`.
 - Versión real del addon en `TomTom.toc` (`## Version:`), no `wowi:revision`.
-- Cualquier fichero nuevo (no heredado de r240-release) va bajo MIT por defecto, igual que el
-  resto de modificaciones de este fork; ver LICENSE.
+- Este proyecto sigue la política UPSTREAM (fork): no se asigna una licencia propia al conjunto
+  ni a los ficheros nuevos, dado que no hay una licencia original confirmada que reemplazar; ver
+  LICENSE y CREDITS.md antes de tocar el aviso de licencia.
 
 ## Flujo de trabajo
 
