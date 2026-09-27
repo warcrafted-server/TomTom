@@ -1,0 +1,47 @@
+TomTom (WarCrafted fork) — Avisos de licencia
+================================================
+
+Este repositorio es un fork no oficial y sin ánimo de lucro del addon TomTom
+para World of Warcraft 3.3.5a, mantenido por el proyecto WarCrafted.
+
+1. Código original de TomTom
+-----------------------------
+TomTom fue escrito por Cladhaire <cladhaire@gmail.com>. El paquete original
+(r240-release) no incluye un fichero de licencia explícito. Todos los derechos
+sobre el código original permanecen en su autor. Este fork lo redistribuye de
+buena fe, sin fin comercial, para mantener el addon funcionando en un servidor
+privado de AzerothCore.
+
+2. Modificaciones de este fork
+--------------------------------
+Las modificaciones introducidas en este repositorio a partir del commit inicial
+(v1.0.0, código original sin cambios) se publican bajo licencia MIT:
+
+Copyright (c) 2026 WarCrafted
+
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
+de estas modificaciones y de los ficheros de documentación asociados, para
+utilizarlas sin restricción, incluyendo sin limitación los derechos de usar,
+copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender
+copias, sujeto a las siguientes condiciones:
+
+El aviso de copyright anterior y este aviso de permiso se incluirán en todas
+las copias o partes sustanciales de estas modificaciones.
+
+ESTAS MODIFICACIONES SE PROPORCIONAN "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO.
+
+3. Componentes de terceros
+----------------------------
+Este addon incluye librerías y recursos de terceros, cada uno bajo su propia
+licencia:
+
+- Astrolabe (libs/Astrolabe/): LGPL, ver libs/Astrolabe/lgpl.txt
+- Ace3 (AceGUI, AceConfig, AceEvent, AceDB, AceDBOptions), LibStub,
+  CallbackHandler-1.0, LibDataBroker-1.1 (libs/): licencias propias de cada
+  proyecto (BSD/MIT según componente)
+- Imagen de la flecha (Images/Arrow*, Images/ArrowLicense.txt): uso libre no
+  comercial, autor "Guillotine"
+- Sonido de llegada (Media/ping.mp3, Media/PingLicense.txt): BristolStories,
+  freesound.org
+
+Consulta cada fichero de licencia dentro de su carpeta para más detalle.
