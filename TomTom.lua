@@ -91,6 +91,7 @@ function TomTom:ADDON_LOADED(event, addon)
 					title_alpha = 1,
 					setclosest = true,
                     enablePing = false,
+                    showquest = true,
 				},
 				minimap = {
 					enable = true,
@@ -634,6 +635,13 @@ local function _both_tooltip_show(event, tooltip, uid, dist)
 	local data = waypoints[uid]
 
 	tooltip:SetText(data.title or L["TomTom waypoint"])
+	local questName = TomTom.GetQuestNameForWaypoint and TomTom:GetQuestNameForWaypoint(uid)
+	if questName and questName ~= data.title then
+		tooltip:AddLine(questName, 1, 0.82, 0)
+	end
+	-- _both_tooltip_update needs to know which line holds the distance,
+	-- since the quest name line above may or may not be present.
+	tooltip.distanceLine = tooltip:NumLines() + 1
 	if dist and tonumber(dist) then
 		tooltip:AddLine(string.format(L["%s yards away"], math.floor(dist)), 1, 1, 1)
 	else
@@ -660,10 +668,12 @@ local function _world_tooltip_show(event, tooltip, uid, dist)
 end
 
 local function _both_tooltip_update(event, tooltip, uid, dist)
+	local line = tooltip.lines[tooltip.distanceLine or 2]
+	if not line then return end
 	if dist and tonumber(dist) then
-		tooltip.lines[2]:SetFormattedText(L["%s yards away"], math.floor(dist), 1, 1, 1)
+		line:SetFormattedText(L["%s yards away"], math.floor(dist), 1, 1, 1)
 	else
-		tooltip.lines[2]:SetText(L["Unknown distance"])
+		line:SetText(L["Unknown distance"])
 	end
 end
 
@@ -1042,7 +1052,13 @@ SLASH_TOMTOM_WAY2 = "/tway"
 SLASH_TOMTOM_WAY3 = "/tomtomway"
 SlashCmdList["TOMTOM_WAY"] = function(msg)
 	local tokens = {}
-	for token in msg:gmatch("%S+") do table.insert(tokens, token) end
+	for token in msg:gmatch("%S+") do
+		-- Accept comma as a decimal separator (e.g. "45,2") alongside the dot
+		if token:match("^%d+,%d+$") then
+			token = token:gsub(",", ".")
+		end
+		table.insert(tokens, token)
+	end
 
 	-- Lower the first token
 	if tokens[1] then

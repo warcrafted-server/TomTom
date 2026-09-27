@@ -227,6 +227,14 @@ local function createconfig()
                 width = "double",
                 arg = "arrow.enablePing",
             },
+            showquest = {
+                order = 9.6,
+                type = "toggle",
+                name = L["Show quest name"],
+                desc = L["When the active waypoint was set by Questie for a tracked quest, shows the quest name below the objective title on the waypoint arrow."],
+                width = "double",
+                arg = "arrow.showquest",
+            },
 			display = {
 				type = "group",
 				name = L["Arrow display"],
@@ -662,7 +670,13 @@ local function createconfig()
 				order = 4,
 				type = "toggle",
 				name = L["Enable automatic quest objective waypoints"],
-				desc = L["Enables the automatic setting of quest objective waypoints based on which objective is closest to your current location.  This setting WILL override the setting of manual waypoints."],
+				desc = function()
+					local desc = L["Enables the automatic setting of quest objective waypoints based on which objective is closest to your current location.  This setting WILL override the setting of manual waypoints."]
+					if IsAddOnLoaded("Questie") then
+						desc = desc .. "\n\n|cffff4040" .. L["Questie's own AutoRoute already does this; enabling both will make the arrow fight over the active waypoint."] .. "|r"
+					end
+					return desc
+				end,
 				width = "double",
 				arg = "poi.setClosest",
 			},
@@ -709,7 +723,7 @@ local function createBlizzOptions()
 		args = {
 			help = {
 				type = "description",
-				name = "TomTom is a simple navigation assistant",
+				name = function() return "TomTom " .. (TomTom.version or "") end,
 			},
 		},
 	})
