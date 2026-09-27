@@ -146,7 +146,7 @@ local function OnUpdate(self, elapsed)
 			count = 0
 		end
 
-		cell = count
+		local cell = count
 		local column = cell % 9
 		local row = floor(cell / 9)
 
@@ -176,7 +176,7 @@ local function OnUpdate(self, elapsed)
 		local r,g,b = ColorGradient(perc, br, bg, bb, mr, mg, mb, gr, gg, gb)		
 		arrow:SetVertexColor(r,g,b)
 
-		cell = floor(angle / twopi * 108 + 0.5) % 108
+		local cell = floor(angle / twopi * 108 + 0.5) % 108
 		local column = cell % 9
 		local row = floor(cell / 9)
 
@@ -297,6 +297,7 @@ local dropdown_info = {
 				local uid = active_point
 				local waypoints = TomTom.waypoints
 				local data = waypoints[uid]
+				if not data or not waypoints[data.zone] then return end
 				for uid in pairs(waypoints[data.zone]) do
 					TomTom:RemoveWaypoint(uid)
 				end
@@ -434,7 +435,7 @@ local function wayframe_OnEvent(self, event, arg1, ...)
 				feed_crazy.iconG = g
 				feed_crazy.iconB = b
 
-				cell = floor(angle / twopi * 108 + 0.5) % 108
+				local cell = floor(angle / twopi * 108 + 0.5) % 108
 				local column = cell % 9
 				local row = floor(cell / 9)
 
@@ -480,7 +481,7 @@ wayframe:SetScript("OnEvent", wayframe_OnEvent)
 -- into consideration.  This can be accomplished by subtracting
 -- GetPlayerFacing() from the angle before passing it in.
 function TomTom:SetCrazyArrowDirection(angle)
-    cell = floor(angle / twopi * 108 + 0.5) % 108
+    local cell = floor(angle / twopi * 108 + 0.5) % 108
     local column = cell % 9
     local row = floor(cell / 9)
 

@@ -110,7 +110,7 @@ local function updateClosestPOI()
         local title, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete, isDaily, questID = GetQuestLogTitle(questIndex);
         local playerMoney = GetMoney();
         local requiredMoney = GetQuestLogRequiredMoney(questIndex);			
-        numObjectives = GetNumQuestLeaderBoards(questIndex);
+        local numObjectives = GetNumQuestLeaderBoards(questIndex);
         if ( isComplete and isComplete < 0 ) then
             isComplete = false;
         elseif ( numObjectives == 0 and playerMoney >= requiredMoney ) then

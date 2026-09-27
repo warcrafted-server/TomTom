@@ -232,10 +232,10 @@ end
 function TomTom:ShowWaypoint(uid)
 	local point = resolveuid(uid)
 	if point then
-		point.minimap.disabled = not point.data.show_minimap
+		point.minimap.disabled = not point.show_minimap
 		point.minimap:Show()
 
-		point.worldmap.disabled = not point.data.show_worldmap
+		point.worldmap.disabled = not point.show_world
 		point.worldmap:Show()
 	end
 end
@@ -331,8 +331,6 @@ do
 	World_OnLeave = Minimap_OnLeave
 	World_OnClick = Minimap_OnClick
 
-	local minimap_count = 0
-
 	function Minimap_OnUpdate(self, elapsed)
 		local dist,x,y = Astrolabe:GetDistanceToIcon(self)
 		local disabled = self.disabled
@@ -342,12 +340,11 @@ do
 			return
 		end
 
-		minimap_count = minimap_count + elapsed
+		self.updateCounter = (self.updateCounter or 0) + elapsed
 
-		if minimap_count < 0.1 then return end
+		if self.updateCounter < 0.1 then return end
 
-		-- Reset the counter
-		minimap_count = 0
+		self.updateCounter = 0
 
 		local edge = Astrolabe:IsIconOnEdge(self)
 		local data = self.point

@@ -601,7 +601,8 @@ function TomTom:CHAT_MSG_ADDON(event, prefix, data, channel, sender)
 	if sender == UnitName("player") then return end 
 
 	local zone,coord,title = string.split(":", data)
-	if not title:match("%S") then
+	if not zone or not coord then return end
+	if not title or not title:match("%S") then
 		title = string.format(L["Waypoint from %s"], sender)
 	end
 
@@ -758,6 +759,7 @@ function TomTom:AddZWaypoint(c, z, x, y, desc, persistent, minimap, world, custo
 			},
 		}
 	end
+	callbacks.distance = callbacks.distance or {}
 
 	local cleardistance = self.profile.persistence.cleardistance
     local arrivaldistance = self.profile.arrow.arrival
@@ -848,11 +850,10 @@ function TomTom:WaypointExists(c, z, x, y, desc)
             local data = waypoints[uid]
             if data.title == desc then
                 return true
-            else
-                return false
             end
         end
     end
+    return false
 end
 
 function TomTom:SetCustomWaypoint(c,z,x,y,callback,minimap,world, silent)
@@ -972,12 +973,13 @@ do
 		self:StopMovingOrSizing()
 	end
 
-    function Block_OnClick(self, button, down) 
-        local c,z,x,y = Astrolabe:GetCurrentPlayerPosition() 
-        local zone = TomTom:GetMapFile(c, z)	
-        local desc = format("%s: %.2f, %.2f", zone, x*100, y*100) 
-        TomTom:AddZWaypoint(c, z, x*100, y*100, desc) 
-    end 
+    function Block_OnClick(self, button, down)
+        local c,z,x,y = Astrolabe:GetCurrentPlayerPosition()
+        if not x or not y then return end
+        local zone = TomTom:GetMapFile(c, z)
+        local desc = format("%s: %.2f, %.2f", zone, x*100, y*100)
+        TomTom:AddZWaypoint(c, z, x*100, y*100, desc)
+    end
 end
 
 local function usage()
